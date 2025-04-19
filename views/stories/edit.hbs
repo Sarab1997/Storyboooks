@@ -1,0 +1,39 @@
+
+<h3>Edit Story</h3>
+<div class="container" style="margin-top: 50px; max-width: 600px;">
+    <h4>Add a New Story</h4>
+    <form action="/stories/?_method=PUT" method="POST" >
+        <!-- Title -->
+        <div class="input-field">
+            <input id="title" name="title" type="text" class="validate" required value="{{story.title}}">
+            <label for="title">Story Title</label>
+        </div>
+
+        <!-- Body -->
+        <div class="input-field">
+            <textarea id="body" name="body" class="materialize-textarea" style="height: 200px;" required>{{story.body}}</textarea>
+            <label for="body">Tell Us Your Story</label>
+        </div>
+
+        <!-- Status -->
+        <div class="input-field">
+            <select name="status" required>
+                {{#select story.status}}
+                <option value="public" selected>Public</option>
+                <option value="private">Private</option>
+                {{/select}}
+            </select>
+            <label>Status</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn waves-effect waves-light">
+            <i class="material-icons left">save</i>Save
+        </button>
+        
+        <!-- Cancel Button -->
+        <a href="/dashboard" class="btn waves-effect waves-light orange">Cancel</a>
+    </form>
+</div>
+
+
